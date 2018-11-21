@@ -5,8 +5,7 @@ module.exports = {
     client: 'pg',
     connection: {
       host: 'localhost',
-      // DATABASE_NAME
-      database: 'INSERT_DATABASE_NAME'
+      database: 'rapidmixology'
     },
     migrations: {
       directory: './src/db/migrations'
@@ -29,7 +28,7 @@ module.exports = {
   //   client: 'pg',
   //   connection: {
   //     host: 'localhost',
-  //     database: 'INSERT_DATABASE_NAME_test'
+  //     database: 'rapidmixology_test'
   //   },
   //   migrations: {
   //     directory: './src/db/migrations'

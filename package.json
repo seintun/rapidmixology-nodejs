@@ -1,0 +1,29 @@
+{
+  "name": "rapidmixology-backend",
+  "version": "1.0.0",
+  "description": "RapidMixology Project Backend with NodeJS, Express and Knex",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "knex": "knex"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seintun/rapidmixology-backend.git"
+  },
+  "author": "Sein Tun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seintun/rapidmixology-backend/issues"
+  },
+  "homepage": "https://github.com/seintun/rapidmixology-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "pg": "^7.6.1"
+  }
+}
