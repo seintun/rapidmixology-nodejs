@@ -5,32 +5,37 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('users').insert([
         { 
-          name: 'Dave', 
-          userId: 'dave', 
+          firstName: 'Dave', 
+          lastName: 'Galvanize', 
+          userName: 'davegalvie', 
           password: 'password123', 
           email: 'dave@galvanize.com'
         },
         {
-          name: 'Elizabeth', 
-          userId: 'elizabeth', 
+          firstName: 'Elizabeth', 
+          lastName: 'Galvanize', 
+          userName: 'elizabethgalvie', 
           password: 'password123', 
           email: 'elizabeth@email.com'
         },
         {
-          name: 'John', 
-          userId: 'john', 
+          firstName: 'John', 
+          lastName: 'Galvanize', 
+          userName: 'johngalvie', 
           password: 'password123', 
           email: 'john@email.com'
         },
         {
-          name: 'Mary', 
-          userId: 'mary', 
+          firstName: 'Mary', 
+          lastName: 'Galvanize', 
+          userName: 'marygalvie', 
           password: 'password123', 
           email: 'mary@email.com'
         },
         {
-          name: 'Isabella', 
-          userId: 'isabella', 
+          firstName: 'Isabella', 
+          lastName: 'Galvanize', 
+          userName: 'isabellagalvie', 
           password: 'password123', 
           email: 'isabella@email.com'
         }
