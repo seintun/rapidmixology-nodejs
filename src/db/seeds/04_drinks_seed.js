@@ -51,12 +51,6 @@ exports.seed = function(knex, Promise) {
           milk: true, 
           sugar: 0.50,
           ice: 0.50
-        },
-        {
-          tea_id: 19,
-          milk: false, 
-          sugar: 0.25,
-          ice: 0.70
         }
       ]);
     });
