@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('toppings', (table) =>{
-    table.increments();
+    table.increments('id');
     table.string('name').notNullable().defaultTo('');
     table.string('description', 500).defaultTo('');
     table.integer('calorie').defaultTo(0);
