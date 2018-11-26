@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           drink_id: 6,
-          topping_id: 7
+          topping_id: 11
         },
         {
           drink_id: 7,
@@ -66,7 +66,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           drink_id: 8,
-          topping_id: 8
+          topping_id: 10
         },
 
       ]);
