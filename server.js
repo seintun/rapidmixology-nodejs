@@ -10,8 +10,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const usersRoute = require('./src/routes/users.route');
-app.use('/users', usersRoute);
+const ordersRoute = require('./src/routes/orders.route');
 
+app.use('/users', usersRoute);
+app.use('/orders', ordersRoute);
 //Error-handling if any other route is reached
 app.all('*', (req, res, next) => res.sendStatus(404))
 app.use((err, req, res, next) => {
