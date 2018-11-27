@@ -10,6 +10,8 @@ exports.up = function(knex, Promise) {
       .references('id')
       .inTable('toppings')
       .onDelete('CASCADE'); 
+    table.integer('quantity')
+      .defaultTo(0)
   });
 };
 
