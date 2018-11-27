@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
     table.string('name').notNullable().defaultTo('');
     table.string('description', 500).defaultTo('');
     table.integer('calorie').defaultTo(0);
+    table.decimal('price').notNull();
     table.timestamps(true,true);
   });
 };
