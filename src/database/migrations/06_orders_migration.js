@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
       .references('id')
       .inTable('drinks')
       .onDelete('CASCADE');
-    table.decimal('price').notNull();
+    table.decimal('total').notNull();
     table.timestamps(true,true);
   });
 };
