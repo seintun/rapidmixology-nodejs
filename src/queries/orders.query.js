@@ -22,7 +22,8 @@ const fetchOrders = () => {
         'teas.type as teaType',
         // knex.raw('ARRAY_AGG(toppings.name) as toppingName'),
         'toppings.name as toppingName',
-        'orders.total as orderTotal'
+        'orders.total as orderTotal',
+        'orders.created_at as orderPlaced'
       )
       .distinct()
 }
