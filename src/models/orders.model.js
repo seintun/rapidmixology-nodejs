@@ -1,5 +1,14 @@
 const ordersQuery = require('../queries/orders.query')
 
+const fetchOrders = () => {
+  let orders = ordersQuery.fetchOrders()
+
+  return orders.then(result => {
+    return result.length < 1
+      ? { error: 'error retrieving orders', status: 404 }
+      : result
+  })
+}
 const createOrder = (userId, drinkInfo) => {
   let order = ordersQuery.createOrder(userId, drinkInfo)
 
@@ -10,5 +19,6 @@ const createOrder = (userId, drinkInfo) => {
   })
 }
 module.exports = {
+  fetchOrders,
   createOrder
 }
