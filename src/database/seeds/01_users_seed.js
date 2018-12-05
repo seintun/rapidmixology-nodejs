@@ -9,35 +9,40 @@ exports.seed = function(knex, Promise) {
           lastName: 'Galvanize', 
           userName: 'davegalvie', 
           password: 'password123', 
-          email: 'dave@galvanize.com'
+          email: 'dave@galvanize.com',
+          token: ''
         },
         {
           firstName: 'Elizabeth', 
           lastName: 'Galvanize', 
           userName: 'elizabethgalvie', 
           password: 'password123', 
-          email: 'elizabeth@email.com'
+          email: 'elizabeth@email.com',
+          token: ''
         },
         {
           firstName: 'John', 
           lastName: 'Galvanize', 
           userName: 'johngalvie', 
           password: 'password123', 
-          email: 'john@email.com'
+          email: 'john@email.com',
+          token: ''
         },
         {
           firstName: 'Mary', 
           lastName: 'Galvanize', 
           userName: 'marygalvie', 
           password: 'password123', 
-          email: 'mary@email.com'
+          email: 'mary@email.com',
+          token: ''
         },
         {
           firstName: 'Isabella', 
           lastName: 'Galvanize', 
           userName: 'isabellagalvie', 
           password: 'password123', 
-          email: 'isabella@email.com'
+          email: 'isabella@email.com',
+          token: ''
         }
       ]);
     });

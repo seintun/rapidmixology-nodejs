@@ -34,6 +34,19 @@ const loginUser = (credentials) => {
       return err.message;
     })
 }
+const addToken = (user, tokenInfo) => {
+  return knex('users')
+    .where('users.id', user.id)
+    .update({
+      token: tokenInfo
+    })
+    .then(result => {
+      return result;
+    })
+    .catch(err => {
+      return err.message;
+    })
+}
 const editUser = (userInfo) => {
   return knex('users')
     .where('id', userInfo.id)
@@ -62,6 +75,7 @@ module.exports = {
   findUser,
   createUser,
   loginUser,
+  addToken,
   editUser,
   deleteUser
 }
