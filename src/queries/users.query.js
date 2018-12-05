@@ -34,11 +34,11 @@ const loginUser = (credentials) => {
       return err.message;
     })
 }
-const addToken = (user, tokenInfo) => {
+const addToken = (user, newToken) => {
   return knex('users')
     .where('users.id', user.id)
     .update({
-      token: tokenInfo
+      token: newToken
     })
     .then(result => {
       return result;

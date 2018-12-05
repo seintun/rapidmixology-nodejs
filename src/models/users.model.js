@@ -33,21 +33,19 @@ const loginUser = (credentials) => {
 
   return user.then(user => {
       if (!user) return { error: 'ERROR: Unable to authenticate user', status: 401 }
-      
-      const { password, created_at, updated_at, ...userLoggedIn } = user
+      const { password, created_at, updated_at, token, ...userLoggedIn } = user
 
       const timeIssued = Math.floor(Date.now() / 1000)
       const timeExpired = timeIssued + 86400 * 28
-      let token = jwt.sign({ 
+      let newToken = jwt.sign({ 
         iat: timeIssued,
         exp: timeExpired,
         id: user.id
       }, 'secretkey' )
-      
-      let addToken = usersQuery.addToken(userLoggedIn, token)
+      let addToken = usersQuery.addToken(userLoggedIn, newToken)
       return addToken.then(result => {
         if (!result) return { error: 'ERROR: Unable to add token', status: 403 }
-        return {userLoggedIn, token}
+        return {userLoggedIn, newToken}
       })
   })
 }
