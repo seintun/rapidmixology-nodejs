@@ -23,12 +23,12 @@ const createUser = (userInfo) => {
       return err.message;
     })
 }
-const loginUser = (userInfo) => {
+const loginUser = (credentials) => {
   return knex('users')
-    .where('users.userName',userInfo.userName)
-    .where('users.password',userInfo.password)
+    .where('users.userName',credentials.userName)
+    .where('users.password',credentials.password)
     .then(result => {
-      return result;
+      return result[0];
     })
     .catch(err => {
       return err.message;

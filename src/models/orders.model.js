@@ -9,7 +9,9 @@ const fetchOrders = () => {
       : result
   })
 }
-const createOrder = (userId, drinkInfo) => {
+const createOrder = (userId, drinkInfo, token) => {
+  // if(token.length < 1) return { error: 'User needs to be logged in (Missing token)', status: 404 }
+  
   let order = ordersQuery.createOrder(userId, drinkInfo)
 
   return order.then(result => {

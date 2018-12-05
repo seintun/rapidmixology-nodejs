@@ -1,4 +1,5 @@
 const usersQuery = require('../queries/users.query')
+const jwt = require('jsonwebtoken')
 
 const fetchUsers = () => {
   let users = usersQuery.fetchUsers()
@@ -27,13 +28,22 @@ const createUser = (userInfo) => {
       : result
   })
 }
-const loginUser = (userInfo) => {
-  let user = usersQuery.loginUser(userInfo)
+const loginUser = (credentials) => {
+  let user = usersQuery.loginUser(credentials)
 
-  return user.then(result => {
-    return !result
-      ? { error: 'ERROR: Unable to authenticate user', status: 401 }
-      : result
+  return user.then(user => {
+      if (!user) return { error: 'ERROR: Unable to authenticate user', status: 401 }
+      
+      const { password, created_at, updated_at, ...userLoggedIn } = user
+
+      const timeIssued = Math.floor(Date.now() / 1000)
+      const timeExpired = timeIssued + 86400 * 28
+      let token = jwt.sign({ 
+        iat: timeIssued,
+        exp: timeExpired,
+        id: user.id
+      }, 'secretkey' )
+      return {userLoggedIn, token}
   })
 }
 const editUser = (userInfo) => {
