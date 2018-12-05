@@ -43,7 +43,12 @@ const loginUser = (credentials) => {
         exp: timeExpired,
         id: user.id
       }, 'secretkey' )
-      return {userLoggedIn, token}
+      
+      let addToken = usersQuery.addToken(userLoggedIn, token)
+      return addToken.then(result => {
+        if (!result) return { error: 'ERROR: Unable to add token', status: 403 }
+        return {userLoggedIn, token}
+      })
   })
 }
 const editUser = (userInfo) => {
