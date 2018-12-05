@@ -13,8 +13,8 @@ const fetchOrders = (req, res, next) => {
   })
 }
 const createOrder = (req, res, next) => {
-  let {body} = req;
-  let promise = model.createOrder(body.userId, body.drink)
+  let { userId, drink, token } = req.body;
+  let promise = model.createOrder(userId, drink, token)
 
   promise.then(result => {
     return result.error 
