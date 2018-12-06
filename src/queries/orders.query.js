@@ -38,11 +38,11 @@ const createOrder = (userId, drinkInfo) => {
     .returning('id')
     .then(returningId => {
       let arrayOfToppings = [];
-      Object.values(drinkInfo.toppings).map(topping => {
+      drinkInfo.toppings.map(topping => {
         let toppingChoice = {
           drink_id: `${returningId}`,
-          topping_id: topping[0],
-          quantity: topping[1]
+          topping_id: topping.id,
+          quantity: topping.quantity
         }
         arrayOfToppings.push(toppingChoice);
       })
@@ -55,12 +55,14 @@ const createOrder = (userId, drinkInfo) => {
               "drink_id": `${returningId}`,
               "total": drinkInfo.total
             })
+          .returning('id')
         )
       })
     .catch(err => {
         return err.message;
     })
 }
+
 module.exports = {
   fetchOrders,
   createOrder
