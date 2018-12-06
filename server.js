@@ -11,9 +11,13 @@ app.use(cors());
 
 const usersRoute = require('./src/routes/users.route');
 const ordersRoute = require('./src/routes/orders.route');
+const teasRoute = require('./src/routes/teas.route');
+const toppingsRoute = require('./src/routes/toppings.route');
 
 app.use('/users', usersRoute);
 app.use('/orders', ordersRoute);
+app.use('/teas', teasRoute);
+app.use('/toppings', toppingsRoute);
 //Error-handling if any other route is reached
 app.all('*', (req, res, next) => res.sendStatus(404))
 app.use((err, req, res, next) => {
