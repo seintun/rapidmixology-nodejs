@@ -11,13 +11,12 @@ const fetchOrders = () => {
 }
 const createOrder = (userId, drinkInfo, token) => {
   // if(token.length < 1) return { error: 'User needs to be logged in (Missing token)', status: 404 }
-  
   let order = ordersQuery.createOrder(userId, drinkInfo)
 
   return order.then(result => {
     return !result
       ? { error: 'error creating new order', status: 404 }
-      : result
+      : `Your new order of ${result} is created!`
   })
 }
 module.exports = {
