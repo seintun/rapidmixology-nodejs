@@ -66,7 +66,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           drink_id: 6,
-          topping_id: 11,
+          topping_id: 10,
           quantity: 1
         },
         {

@@ -5,12 +5,6 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('toppings').insert([
         {
-          name: 'No Topping',
-          description: 'I like my drink simple without any topping.',
-          calorie: 0,
-          price: 0
-        },
-        {
           name: 'Tapioca (Boba)',
           description: 'Tapioca, also known as “bubbles” or “boba,” is a fan favorite. It is made from tapioca starch and brown sugar. We make it fresh every 2 hours to ensure the best possible quality! Tapioca has a chewy and squishy texture, and thanks to the brown sugar, it adds sweetness to any drink.',
           calorie: 145,

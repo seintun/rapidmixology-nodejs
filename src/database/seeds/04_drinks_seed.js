@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('drinks').insert([
         {
-          tea_id: 11,
+          tea_id: 10,
           milk: true, 
           sugar: 0.75,
           ice: 0.50
