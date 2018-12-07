@@ -1,5 +1,7 @@
 const usersQuery = require('../queries/users.query')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const config = require('../../config');
 
 const fetchUsers = () => {
   let users = usersQuery.fetchUsers()
@@ -20,12 +22,21 @@ const findUser = (id) => {
   })
 }
 const createUser = (userInfo) => {
-  let user = usersQuery.createUser(userInfo)
-
+  const { firstName, lastName, userName, password, email } = userInfo
+  let hashPassword = bcrypt.hashSync(password, 8)
+  let userObj = {
+    "firstName": firstName,
+    "lastName": lastName,
+    "userName": userName,
+    "password": hashPassword,
+    "email": email
+  }
+  let user = usersQuery.createUser(userObj)
   return user.then(result => {
+    let token = jwt.sign({userName: userName}, config.secret, { expiresIn: 86400 })
     return !result
       ? { error: 'ERROR: Unable to create new user', status: 403 }
-      : result
+      : { auth: true, token };
   })
 }
 const loginUser = (credentials) => {
