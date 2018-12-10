@@ -1,7 +1,7 @@
 # RapidMixology (Explore and Experience curated artisan handpicked teas!)
 Visit: https://rapidmixology.herokuapp.com
 [Github], [Heroku-React], [Heroku-API], [Trello]
-# Frontend: https://github.com/seintun/v
+# Frontend: https://github.com/seintun/rapidmixology-frontend
 # Backend: https://github.com/seintun/rapidmixology-backend
 
 RapidMixology is a deployed mobile-focused customize your artisan teas service for 
@@ -11,7 +11,7 @@ RapidMixology is a deployed mobile-focused customize your artisan teas service f
 - save their favorite or pick recommended drinks on their next visit
 
 - Cafè owner
-- looking to reach and market their presence
+- looking to reach and market their presenceq
 - facilitates and personalizes customer experience
 - decreas wait-time and overheads for ordering process
 
