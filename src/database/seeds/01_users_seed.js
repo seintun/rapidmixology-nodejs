@@ -5,44 +5,39 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('users').insert([
         { 
-          firstName: 'Dave', 
+          firstName: 'Link', 
           lastName: 'Galvanize', 
-          userName: 'davegalvie', 
-          password: 'password123', 
-          email: 'dave@galvanize.com',
-          token: ''
+          userName: 'linkgalvie', 
+          password: '$2a$08$.OAFxv7UDXFKp.p14Y/J9.MWMeeiu02fyCqgbzWLWs.GNMpEY5326', 
+          email: 'link@galvanize.com'
         },
         {
-          firstName: 'Elizabeth', 
+          firstName: 'Mario', 
           lastName: 'Galvanize', 
-          userName: 'elizabethgalvie', 
-          password: 'password123', 
-          email: 'elizabeth@email.com',
-          token: ''
+          userName: 'mariogalvie', 
+          password: '$2a$08$.OAFxv7UDXFKp.p14Y/J9.MWMeeiu02fyCqgbzWLWs.GNMpEY5326', 
+          email: 'eliz@email.com'
         },
         {
           firstName: 'John', 
           lastName: 'Galvanize', 
           userName: 'johngalvie', 
-          password: 'password123', 
-          email: 'john@email.com',
-          token: ''
+          password: '$2a$08$.OAFxv7UDXFKp.p14Y/J9.MWMeeiu02fyCqgbzWLWs.GNMpEY5326', 
+          email: 'john@email.com'
         },
         {
           firstName: 'Mary', 
           lastName: 'Galvanize', 
           userName: 'marygalvie', 
-          password: 'password123', 
-          email: 'mary@email.com',
-          token: ''
+          password: '$2a$08$.OAFxv7UDXFKp.p14Y/J9.MWMeeiu02fyCqgbzWLWs.GNMpEY5326', 
+          email: 'mary@email.com'
         },
         {
-          firstName: 'Isabella', 
+          firstName: 'Yoshi', 
           lastName: 'Galvanize', 
-          userName: 'isabellagalvie', 
-          password: 'password123', 
-          email: 'isabella@email.com',
-          token: ''
+          userName: 'yoshigalvie', 
+          password: '$2a$08$.OAFxv7UDXFKp.p14Y/J9.MWMeeiu02fyCqgbzWLWs.GNMpEY5326', 
+          email: 'yoshi@email.com'
         }
       ]);
     });

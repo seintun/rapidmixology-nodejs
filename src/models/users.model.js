@@ -33,31 +33,22 @@ const createUser = (userInfo) => {
   }
   let user = usersQuery.createUser(userObj)
   return user.then(result => {
-    let token = jwt.sign({userName: userName}, config.secret, { expiresIn: 86400 })
+    let token = jwt.sign({id: result}, config.secret, { expiresIn: 86400 })
     return !result
       ? { error: 'ERROR: Unable to create new user', status: 403 }
       : { auth: true, token };
   })
 }
-const loginUser = (credentials) => {
-  let user = usersQuery.loginUser(credentials)
-
+const loginUser = (userName, password) => {
+  let user = usersQuery.loginUser(userName, password)
   return user.then(user => {
       if (!user) return { error: 'ERROR: Unable to authenticate user', status: 401 }
-      const { password, created_at, updated_at, token, ...userLoggedIn } = user
+      
+      let isPasswordValid = bcrypt.compareSync(password, user.password);
+      if (!isPasswordValid) return res.send({ auth: false, token: null});
 
-      const timeIssued = Math.floor(Date.now() / 1000)
-      const timeExpired = timeIssued + 86400 * 28
-      let newToken = jwt.sign({ 
-        iat: timeIssued,
-        exp: timeExpired,
-        id: user.id
-      }, 'secretkey' )
-      let addToken = usersQuery.addToken(userLoggedIn, newToken)
-      return addToken.then(result => {
-        if (!result) return { error: 'ERROR: Unable to add token', status: 403 }
-        return {userLoggedIn, newToken}
-      })
+      let token = jwt.sign({id: user.id}, config.secret, { expiresIn: 86400 })
+      return { auth: true, token, user: { id: user.id, firstName: user.firstName, lastName: user.lastName } };
   })
 }
 const editUser = (userInfo) => {

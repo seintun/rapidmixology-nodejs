@@ -24,10 +24,9 @@ const createUser = (userObj) => {
       return err.message;
     })
 }
-const loginUser = (credentials) => {
+const loginUser = (userName, password) => {
   return knex('users')
-    .where('users.userName',credentials.userName)
-    .where('users.password',credentials.password)
+    .where('users.userName', userName)
     .then(result => {
       return result[0];
     })

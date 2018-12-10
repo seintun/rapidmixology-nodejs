@@ -37,8 +37,8 @@ const createUser = (req, res, next) => {
   })
 }
 const loginUser = (req, res, next) => {
-  let { body } = req;
-  let promise = model.loginUser(body)
+  let { userName, password } = req.body;
+  let promise = model.loginUser(userName, password)
 
   promise.then(result => {
     return result.error 
